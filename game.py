@@ -69,6 +69,7 @@ def checkHomePath(chosenPath):
         time.sleep(2)
         print()
         print("You look out the window to try to get a view of what happened, but you can't see anything.")
+        makeChoice()
     if chosenPath == "2":
         print("Despite your mother's pleas, you sprint outside to try to save your friend.")
         time.sleep(2)
@@ -92,6 +93,7 @@ def checkHomePath(chosenPath):
                 print()
                 print(
                     "He thanks you profusely, and returns home to see his family again.")
+                makeChoice()
             else:
                 print(
                     "You run to your friend, and kick the zombie off of him. He runs back into his house, and you do the same.")
@@ -99,6 +101,7 @@ def checkHomePath(chosenPath):
                 print()
                 print(
                     "He didn't have time to thank you, but I'm sure he is very grateful.")
+                makeChoice()
         if friendChoice != str(correctChoice):
             print()
             print("Unexpectedly, a swarm of zombies comes from your blind spot. Your mother screams as she watches on.")
@@ -150,18 +153,95 @@ def checkStorePath(chosenPath):
         time.sleep(2)
         print()
         print("You and your Dad are able to escape, gathering a small amount of food and medicine")
+        makeChoice()
     else:
         print(
             "Unfortunately you chose the wrong side, and are quickly engulfed in the swarm")
         print()
         playAgain()
-        # Run the losing game function
+
+
+def homePath2():
+    print()
+    print("Your mom has had a change of heart, and she thinks it's time to leave the house.")
+    time.sleep(2)
+    print()
+    print("The rest of the family agrees, it's too dangerous to stay here.")
+    time.sleep(2)
+    print()
+    print("Your dad suggests you make the journey to his parents house. It's in a secluded area, and probably safer.")
+    time.sleep(2)
+    print()
+    print("Mom wants to travel to the CDC. It's a bit further, but they could have a cure.")
+    time.sleep(2)
+    print()
+    homeChoice = ""
+    while homeChoice != "1" and homeChoice != "2":
+        homeChoice = input(
+            "Enter 1 to go to your grandparent's house, enter 2 to go to the CDC: ")
+    print()
+    return homeChoice
+
+
+def makeChoice():
+    number = homePath2()
+    if number == "1":
+        gmaPath()
+    else:
+        cdcPath()
+
+
+def cdcPath():
+    print("You set off to begin your journey to the CDC.")
+    time.sleep(2)
+    print()
+    print("Do you want to drive on the interstate or the backroads?")
+    time.sleep(2)
+    print()
+    print("The interstate will make the journey much quicker, if the road is clear. The side roads are slower, but probably safer.")
+    time.sleep(2)
+    print()
+    cdcChoice = ""
+    while cdcChoice != "1" and cdcChoice != "2":
+        cdcChoice = input(
+            "Enter 1 to take the interstate, enter 2 to take the side roads: ")
+    if cdcChoice == "1":
+        interstateChoice()
+    else:
+        sideRoadsChoice()
+
+
+def interstateChoice():
+    print("interstate")
+
+
+def sideRoadsChoice():
+    print("side roads")
+
+
+def gmaPath():
+    print("You set off to begin your journey to Grandma and Grandpa's house.")
+    time.sleep(2)
+    print()
+    print("Do you want to drive on the interstate or the backroads?")
+    time.sleep(2)
+    print()
+    print("The interstate will make the journey much quicker, if the road is clear. The side roads are slower, but probably safer.")
+    time.sleep(2)
+    print()
+    gmaChoice = ""
+    while gmaChoice != "1" and gmaChoice != "2":
+        gmaChoice = input("Enter 1 to take the interstate, enter 2 to take the side roads: ")
+    if gmaChoice == "1":
+        interstateChoice()
+    else:
+        sideRoadsChoice()
 
 
 def playAgain():
     intro()
     choice = choosePath()
-    choice2 = chooseDirection(choice)
+    chooseDirection(choice)
 
 
 playAgain()
